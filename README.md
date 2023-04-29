@@ -1,14 +1,36 @@
-# AutoRA Theorist Template
+# AutoRA Inequality Sampler
 
-## Quickstart Guide
+`autora-experimentalist-inequailtysampler` is a Python module for sampling data built on AutoRA.
 
-Install this in an environment using your chosen package manager. In this example we are using virtualenv
+Website: [https://autoresearch.github.io/autora/](https://autoresearch.github.io/autora/)
 
-Install:
-- python (3.8 or greater): https://www.python.org/downloads/
-- virtualenv: https://virtualenv.pypa.io/en/latest/installation.html
+## User Guide
 
-Create a new virtual environment:
+You will need:
+
+- `python` 3.8 or greater: [https://www.python.org/downloads/](https://www.python.org/downloads/)
+- `graphviz` (optional, required for computation graph visualizations): 
+  [https://graphviz.org/download/](https://graphviz.org/download/)
+
+Install the inequality sampler as part of the `autora` package:
+
+```shell
+pip install -U "autora[experimentalist-inequality-sampler]"
+```
+
+> It is recommended to use a `python` environment manager like `virtualenv`.
+
+## Developer Guide
+
+### Get started
+
+Clone the repository (e.g. using [GitHub desktop](https://desktop.github.com), 
+or the [`gh` command line tool](https://cli.github.com)) 
+and install it in "editable" mode in an isolated `python` environment, (e.g. 
+with 
+[virtualenv](https://virtualenv.pypa.io/en/latest/installation.html)) as follows:
+
+In the repository root, create a new virtual environment:
 ```shell
 virtualenv venv
 ```
@@ -23,20 +45,17 @@ Use `pip install` to install the current project (`"."`) in editable mode (`-e`)
 pip install -e ".[dev]"
 ```
 
-## Add your contribution 
-Your autora-subpackage should include (1) your code implementing the desired **theorist**, 
-(2) **unit tests** for this theorist, and (3) respective **documentation**. 
+Run the test cases:
+```shell
+pytest tests/ --doctest-modules src/
+```
 
-### Adding the theorist
-Add your code to the `src/autora/theorist/your_theorist_name/`
+Activate the pre-commit hooks:
+```shell
+pre-commit install
+```
 
-### Adding unit tests
-You may also add tests to `tests/test_theorist_your_theorist_name.py`
-
-### Adding documentation
-You may document your theorist in `docs/index.md`
-
-## Add new dependencies 
+### Add new dependencies 
 
 In pyproject.toml add the new dependencies under `dependencies`
 
@@ -45,12 +64,11 @@ Install the added dependencies
 pip install -e ".[dev]"
 ```
 
-## Publishing the package
+### Publish the package
 
-Update the meta data under `project` in the pyproject.toml file to include name, description, author-name, author-email and version.
-Also, update the URL for the repository under `project.urls`.
+Update the metadata under `project` in the pyproject.toml file to include name, description, author-name, author-email and version
 
-- Follow the guide here: https://packaging.python.org/en/latest/tutorials/packaging-projects/
+- Follow the guide here: [https://packaging.python.org/en/latest/tutorials/packaging-projects/](https://packaging.python.org/en/latest/tutorials/packaging-projects/)
 
 Build the package using:
 ```shell
@@ -61,6 +79,3 @@ Publish the package to PyPI using `twine`:
 ```shell
 twine upload dist/*
 ```
-
-## Workflows
-...
