@@ -6,7 +6,7 @@ authors = [
     { name = "Chad C. Williams", email = "cwilliams.uca@gmail.com" },
     { name = "Younes Strittmatter", email = "younes_strittmatter@brown.com" }
 ]
-version = "0.1.0"
+dynamic = ["version"]
 
 readme = "README.md"
 license = { text = "MIT License" }
@@ -28,5 +28,7 @@ repository = "https://github.com/AutoResearch/autora-experimentalist-inequality-
 documentation = "https://autoresearch.github.io/autora/"
 
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools", "setuptools_scm"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
