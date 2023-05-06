@@ -1,1 +1,1 @@
-# AutoRA Inequality Sampler
+# Inequality Sampler
