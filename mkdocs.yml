@@ -5,4 +5,7 @@ site_name: AutoRA  Inequality Sampler
 repo_url: 'https://github.com/autoresearch/autora-experimentalistst-inequality-sampler'
 
 nav:
-- 'index.md'
+- Home: 'index.md'
+- Quickstart: 'quickstart.md'
+- Examples:
+  - Basic Usage: 'basic-usage.ipynb'
