@@ -1,4 +1,4 @@
-# Inequality Sampler
+# AutoRA Inequality Sampler
 
 `autora-experimentalist-inequailtysampler` is a Python module for sampling data built on AutoRA.
 
