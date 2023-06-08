@@ -3,6 +3,8 @@ from typing import Iterable, Literal
 import numpy as np
 from sklearn.metrics import DistanceMetric
 
+from autora.utils.deprecation import deprecated_alias
+
 AllowedMetrics = Literal[
     "euclidean",
     "manhattan",
@@ -27,7 +29,7 @@ AllowedMetrics = Literal[
 ]
 
 
-def summed_inequality_sampler(
+def summed_inequality_sample(
     condition_pool: np.ndarray,
     reference_conditions: np.ndarray,
     n: int = 1,
@@ -135,3 +137,5 @@ def summed_inequality_sampler(
         condition_pool = condition_pool[1:]
 
     return np.array(condition_pool_res[:n])
+
+summed_inequality_sampler = deprecated_alias(summed_inequality_sample, "summed_inequality_sampler")
