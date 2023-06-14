@@ -1,6 +1,6 @@
 # AutoRA Inequality Sampler
 
-`autora-experimentalist-inequailtysampler` is a Python module for sampling data built on AutoRA.
+`autora-experimentalist-sampler-inequality` is a Python module for sampling data built on AutoRA.
 
 Website: [https://autoresearch.github.io/autora/](https://autoresearch.github.io/autora/)
 
@@ -15,7 +15,7 @@ You will need:
 Install the inequality sampler as part of the `autora` package:
 
 ```shell
-pip install -U "autora[experimentalist-inequality-sampler]"
+pip install -U "autora[experimentalist-sampler-inequality]"
 ```
 
 > It is recommended to use a `python` environment manager like `virtualenv`.
@@ -23,5 +23,5 @@ pip install -U "autora[experimentalist-inequality-sampler]"
 Check your installation by running:
 
 ```shell
-python -c "from autora.experimentalist.sampler.inequality import summed_inequality_sampler"
+python -c "from autora.experimentalist.sampler.inequality import summed_inequality_sample"
 ```
