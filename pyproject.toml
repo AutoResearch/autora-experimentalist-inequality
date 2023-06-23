@@ -14,7 +14,7 @@ requires-python = ">=3.8,<4"
 
 # ADD NEW DEPENDENCIES HERE
 dependencies = [
-    "autora-core",
+    "autora-core>=3.1.0",
 ]
 
 [project.optional-dependencies]
