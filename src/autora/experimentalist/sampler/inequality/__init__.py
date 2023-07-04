@@ -32,7 +32,7 @@ AllowedMetrics = Literal[
 def summed_inequality_sample(
     condition_pool: np.ndarray,
     reference_conditions: np.ndarray,
-    n: int = 1,
+    num_samples: int = 1,
     equality_distance: float = 0,
     metric: str = "euclidean",
 ) -> np.ndarray:
@@ -45,7 +45,7 @@ def summed_inequality_sample(
     Args:
         condition_pool: pool of IV conditions to evaluate inequality
         reference_conditions: reference pool of IV conditions
-        n: number of samples to select
+        num_samples: number of samples to select
         equality_distance: the distance to decide if two data points are equal.
         metric: inequality measure. Options: 'euclidean', 'manhattan', 'chebyshev',
             'minkowski', 'wminkowski', 'seuclidean', 'mahalanobis', 'haversine',
@@ -102,9 +102,9 @@ def summed_inequality_sample(
             f"condition_pool has {condition_pool.shape[1]} columns, while reference_conditions has {reference_conditions.shape[1]} columns."
         )
 
-    if condition_pool.shape[0] < n:
+    if condition_pool.shape[0] < num_samples:
         raise ValueError(
-            f"condition_pool must have at least {n} rows matching the number of requested samples."
+            f"condition_pool must have at least {num_samples} rows matching the number of requested samples."
         )
 
     dist = DistanceMetric.get_metric(metric)
@@ -112,7 +112,7 @@ def summed_inequality_sample(
     # create a list to store the n condition_pool values with the highest inequality scores
     condition_pool_res = []
     # choose the canditate with the highest inequality score n-times
-    for _ in range(n):
+    for _ in range(num_samples):
         summed_equalities = []
         # loop over all IV values
         for row in condition_pool:
@@ -136,6 +136,6 @@ def summed_inequality_sample(
         # remove the chosen value from condition_pool
         condition_pool = condition_pool[1:]
 
-    return np.array(condition_pool_res[:n])
+    return np.array(condition_pool_res[:num_samples])
 
 summed_inequality_sampler = deprecated_alias(summed_inequality_sample, "summed_inequality_sampler")
