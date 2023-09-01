@@ -29,7 +29,7 @@ AllowedMetrics = Literal[
 ]
 
 
-def summed_inequality_sample(
+def sample(
     condition_pool: np.ndarray,
     reference_conditions: np.ndarray,
     num_samples: int = 1,
@@ -38,9 +38,9 @@ def summed_inequality_sample(
 ) -> np.ndarray:
     """
     This inequality sampler chooses from the pool of IV conditions according to their
-    inequality with respect to a reference pool reference_conditions. Two IVs are considered equal if their
-    distance is less then the equality_distance. The IVs chosen first are feed back into reference_conditions
-    and are included in the summed equality calculation.
+    inequality with respect to a reference pool reference_conditions. Two IVs are considered
+    equal if their distance is less than the equality_distance. The IVs chosen first are feed back
+    into reference_conditions and are included in the summed equality calculation.
 
     Args:
         condition_pool: pool of IV conditions to evaluate inequality
@@ -99,12 +99,14 @@ def summed_inequality_sample(
     if condition_pool.shape[1] != reference_conditions.shape[1]:
         raise ValueError(
             f"condition_pool and reference_conditions must have the same number of columns.\n"
-            f"condition_pool has {condition_pool.shape[1]} columns, while reference_conditions has {reference_conditions.shape[1]} columns."
+            f"condition_pool has {condition_pool.shape[1]} columns, "
+            f"while reference_conditions has {reference_conditions.shape[1]} columns."
         )
 
     if condition_pool.shape[0] < num_samples:
         raise ValueError(
-            f"condition_pool must have at least {num_samples} rows matching the number of requested samples."
+            f"condition_pool must have at least {num_samples} rows matching the number "
+            f"of requested samples."
         )
 
     dist = DistanceMetric.get_metric(metric)
@@ -132,10 +134,17 @@ def summed_inequality_sample(
         # append the first value of the sorted list to the result
         condition_pool_res.append(condition_pool[0])
         # add the chosen value to reference_conditions
-        reference_conditions = np.append(reference_conditions, [condition_pool[0]], axis=0)
+        reference_conditions = np.append(
+            reference_conditions, [condition_pool[0]], axis=0
+        )
         # remove the chosen value from condition_pool
         condition_pool = condition_pool[1:]
 
     return np.array(condition_pool_res[:num_samples])
 
-summed_inequality_sampler = deprecated_alias(summed_inequality_sample, "summed_inequality_sampler")
+
+summed_inequality_sample = sample
+
+summed_inequality_sampler = deprecated_alias(
+    summed_inequality_sample, "summed_inequality_sampler"
+)

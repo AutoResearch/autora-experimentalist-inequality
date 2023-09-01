@@ -1,7 +1,7 @@
 [project]
 # UPDATE THIS BEFORE PUBLISHING
-name = "autora-experimentalist-sampler-inequality"
-description = "AutoRA Inequality Sampler"
+name = "autora-experimentalist-inequality"
+description = "AutoRA Inequality Experimentalist"
 authors = [
     { name = "Chad C. Williams", email = "cwilliams.uca@gmail.com" },
     { name = "Younes Strittmatter", email = "younes_strittmatter@brown.com" }
@@ -24,7 +24,7 @@ dev = [
 
 [project.urls]
 homepage = "http://www.empiricalresearch.ai"
-repository = "https://github.com/AutoResearch/autora-experimentalist-sampler-inequality"
+repository = "https://github.com/AutoResearch/autora-experimentalist-inequality"
 documentation = "https://autoresearch.github.io/autora/"
 
 [build-system]
