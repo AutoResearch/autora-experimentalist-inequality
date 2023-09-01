@@ -1,6 +1,6 @@
-# Inequality Sampler
+# Inequality Experimentalist
 
-The inequality sampler is a method used to compare experimental conditions and select new conditions based on a pairwise distance metric. Here's how it works:
+The inequality experimentalist is a method used to compare experimental conditions and select new conditions based on a pairwise distance metric. Here's how it works:
 
 Given:
 - Existing experimental conditions represented by $\vec{x}$ in the set $X$.

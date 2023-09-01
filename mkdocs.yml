@@ -1,8 +1,8 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 INHERIT: mkdocs/base.yml  # use the shared AutoRA configuration by default
 
-site_name: AutoRA Inequality Sampler
-repo_url: 'https://github.com/AutoResearch/autora-experimentalistst-sampler-inequality'
+site_name: AutoRA Inequality Experimentalist
+repo_url: 'https://github.com/AutoResearch/autora-experimentalistst-inequality'
 
 nav:
 - Home: 'index.md'
