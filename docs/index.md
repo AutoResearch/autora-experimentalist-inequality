@@ -9,7 +9,7 @@ Given:
 - A threshold value (default = 0) that determines the maximum allowable distance for two conditions to be considered equal.
 - A number $n$ of conditions to sample.
 
-The inequality sampler operates as follows:
+The inequality experimentalist operates as follows:
 
 1. For each candidate condition $\vec{x}'$ in $X'$ calculate an $inequality$ $score$:
 2. Calculate the distances $d(\vec{x}, \vec{x}')$ between $\vec{x}$ and $\vec{x}'$ using the pairwise distance metric for all $\vec{x}$ in $X$.

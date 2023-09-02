@@ -12,7 +12,7 @@ You will need:
 - `graphviz` (optional, required for computation graph visualizations): 
   [https://graphviz.org/download/](https://graphviz.org/download/)
 
-Install the inequality sampler as part of the `autora` package:
+Install the inequality experimentalist as part of the `autora` package:
 
 ```shell
 pip install -U "autora[experimentalist-inequality]"
