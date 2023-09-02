@@ -37,7 +37,7 @@ def sample(
     metric: str = "euclidean",
 ) -> np.ndarray:
     """
-    This inequality sampler chooses from the pool of IV conditions according to their
+    This inequality experimentalist chooses from the pool of IV conditions according to their
     inequality with respect to a reference pool reference_conditions. Two IVs are considered
     equal if their distance is less than the equality_distance. The IVs chosen first are feed back
     into reference_conditions and are included in the summed equality calculation.
@@ -70,13 +70,13 @@ def sample(
         >>> summed_inequality_sampler([1, 2, 3], [1, 1, 1, 2, 2, 2, 3, 3])
         array([[3]])
 
-        The samplers "fills up" the reference array so the values are contributed evenly
+        The experimentalist "fills up" the reference array so the values are contributed evenly
         >>> summed_inequality_sampler([1, 1, 1, 2, 2, 2, 3, 3, 3], [1, 1, 2, 2, 2, 2, 3, 3, 3], 3)
         array([[1],
                [3],
                [1]])
 
-        The sampler samples without replacemnt!
+        The experimentalist samples without replacemnt!
         >>> summed_inequality_sampler([1, 2, 3], [1, 1, 1], 3)
         array([[3],
                [2],
