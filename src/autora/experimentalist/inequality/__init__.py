@@ -60,28 +60,33 @@ def sample(
     Examples:
         The value 1 is not in the reference. Therefore it is choosen.
         >>> summed_inequality_sample([1, 2, 3], [2, 3, 4])
-        array([[1]])
+           0
+        0  1
 
         The equality distance is set to 0.4. 1 and 1.3 are considered equal, so are 3 and 3.1.
         Therefore 2 is choosen.
         >>> summed_inequality_sample([1, 2, 3], [1.3, 2.7, 3.1], 1, .4)
-        array([[2]])
+           0
+        0  2
 
         The value 3 appears least often in the reference.
         >>> summed_inequality_sample([1, 2, 3], [1, 1, 1, 2, 2, 2, 3, 3])
-        array([[3]])
+           0
+        0  3
 
         The experimentalist "fills up" the reference array so the values are contributed evenly
         >>> summed_inequality_sample([1, 1, 1, 2, 2, 2, 3, 3, 3], [1, 1, 2, 2, 2, 2, 3, 3, 3], 3)
-        array([[1],
-               [3],
-               [1]])
+           0
+        0  1
+        1  3
+        2  1
 
         The experimentalist samples without replacemnt!
         >>> summed_inequality_sample([1, 2, 3], [1, 1, 1], 3)
-        array([[3],
-               [2],
-               [1]])
+           0
+        0  3
+        1  2
+        2  1
 
     """
 
@@ -150,6 +155,8 @@ def sample(
     new_conditions = np.array(condition_pool_res[:num_samples])
     if isinstance(conditions, pd.DataFrame):
         new_conditions = pd.DataFrame(new_conditions, columns=conditions.columns)
+    else:
+        new_conditions = pd.DataFrame(new_conditions)
     return new_conditions
 
 
